@@ -17,3 +17,8 @@ function addBookToLibrary(book) {
 function toggleBookRead(book) {
   book.read = !book.read;
 }
+
+function showPopUp (id) {
+  const popup = document.getElementById(id);
+  popup.classList.toggle("show");
+}
