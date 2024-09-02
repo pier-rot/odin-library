@@ -13,6 +13,10 @@ function Book(title, author, pages, edition, year, read) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
   // Update HTML
+  const library = document.getElementById("library");
+  const addContainer = document.getElementById("add-container");
+  const bookCard = makeCardFromBook(book);
+  library.insertBefore(bookCard, addContainer);
 }
 
 function toggleBookRead(book) {
