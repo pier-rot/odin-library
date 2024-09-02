@@ -87,5 +87,9 @@ function makeStringFromKeyValue (key, value) {
   }
 }
 
+function deleteBookFromLibrary(node) {
+  const library = document.getElementById("library");
+  library.removeChild(node);
+}
 
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
