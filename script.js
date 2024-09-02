@@ -104,6 +104,15 @@ function deleteBookFromLibrary(book) {
   }
 }
 
+function editBookRead(book) {
+  for(let i = 0; i < myLibrary.length; i++) {
+    const curr = myLibrary[i];
+    if (book.author == curr.author && book.title == curr.title && book.read == String(curr.read) && book.year == curr.year && book.edition == curr.edition && book.pages == curr.pages) {
+      toggleBookRead(curr);
+    }
+  }
+}
+
 function submitNewBook(event) {
   event.preventDefault();
   const form = event.currentTarget.parentElement.parentElement;
@@ -147,6 +156,9 @@ function editBtnClickHandler (event) {
     currentButton.innerText = "󰅗";
   }
 
+  const set = targetBook.dataset;
+  const book = new Book(set.title, set.author, set.pages, set.edition, set.year, set.read);
+  editBookRead(book);
 }
 
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, true);
