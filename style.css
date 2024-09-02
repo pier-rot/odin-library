@@ -152,23 +152,36 @@ button {
 .library {
     display: flex;
     border: var(--lighter) solid 2px;
-    margin: 1rem;
+    margin: 0 1rem;
     gap: 1rem;
     padding: 1rem;
     border-radius: 1rem;
     flex-wrap: wrap;
+    /* height: calc(100% - 48px); */
 }
 
 .book-container {
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     border: var(--lighter) solid 2px;
     border-radius: 1rem;
     padding: 1rem;
     flex-direction: column;
     background-color: var(--darker);
 }
+
+#add-container {
+    display: flex;
+    padding: 1rem;
+}
+
+#add-container > button {
+    border: var(--lighter) solid 2px;
+    flex: 1;
+}
+
 .book {
     margin-bottom: 0.5rem;
 }
