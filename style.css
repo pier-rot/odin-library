@@ -204,3 +204,9 @@ h1 {
 #add-container > button:hover, #addBookBtn:hover {
     background-color: var(--accenter);
 }
+
+#buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}

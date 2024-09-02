@@ -96,6 +96,23 @@ function deleteBookFromLibrary(book) {
   myLibrary.splice(myLibrary.indexOf(book),1);
 }
 
+function submitNewBook(event) {
+  event.preventDefault();
+  const form = event.currentTarget.parentElement.parentElement;
+  const formData = new FormData(form);
+
+  const author = formData.get("author");
+  const title = formData.get("title");
+  const year = formData.get("year");
+  const edition = formData.get("edition");
+  const pages = formData.get("pages");
+  const read = (formData.get("read") == "on") ? true : false;
+
+  const book = new Book(title,author,pages,edition,year,read);
+  addBookToLibrary(book);
+  
+}
+
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
 const lotr2 = new Book("The Two Towers", "J.R.R. Tolkien", 352, 1, 1954,false);
 addBookToLibrary(lotr1);
