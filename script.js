@@ -136,13 +136,16 @@ function deleteBtnEventHandler (event) {
 }
 
 function editBtnClickHandler (event) {
+  const currentButton = event.currentTarget;
   const targetBook = event.currentTarget.parentElement.parentElement.firstChild;
   const targetRead = targetBook.querySelector("p.read");
   
   if (targetRead.innerText == "Not read yet") {
     targetRead.innerText = "Already read";
+    currentButton.innerText = "";
   } else {
     targetRead.innerText = "Not read yet";
+    currentButton.innerText = "󰅗";
   }
 
 }
