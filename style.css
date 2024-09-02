@@ -53,3 +53,28 @@ h5,
 h6 {
 	overflow-wrap: break-word;
 }
+
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+}
+
+.popup-overlay-container {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+}
+.show {
+    display: flex;
+    opacity: 1;
+}
