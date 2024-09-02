@@ -161,7 +161,6 @@ h1 {
     padding: 1rem;
     border-radius: 1rem;
     flex-wrap: wrap;
-    /* height: calc(100% - 48px); */
 }
 
 .book-container {
