@@ -190,6 +190,14 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-#delete-container > button, .book-container > button, #add-container > button {
+.library button {
     font-size: 1.5rem;
+}
+
+#delete-container > button:hover, #closePopUpBtn:hover {
+    background-color: var(--accent);
+}
+
+#add-container > button:hover, #addBookBtn:hover {
+    background-color: var(--accenter);
 }
