@@ -54,8 +54,20 @@ h6 {
 	overflow-wrap: break-word;
 }
 
+:root {
+    --darker : #1D3557;
+    --darkest : #001C3B;
+    --dark: #457B9D;
+    --light: #A8DADC;
+    --lighter: #F1FAEE;
+    --accent: #E63946;
+    --accenter: #00943D;
+}
+
 body {
     height: 100vh;
+    background-color: var(--darkest);
+    color: var(--lighter);
 }
 
 main {
@@ -72,10 +84,56 @@ main {
     width: 100%;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
 }
 .show {
     display: flex;
     opacity: 1;
+}
+
+#popup-box {
+    /* border: solid 0.125rem black; */
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--darker);
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="number"], button {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--dark);
+    padding: 0.25rem;
+    color: var(--lighter);
+    box-shadow: var(--darkest) 2px 2px 2px;
+}
+
+input[type="text"]:focus-visible, input[type="number"]:focus-visible {
+    border: none;
+    outline: none;
+}
+
+fieldset:nth-last-child(2) > .input-container:last-child {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
 }
