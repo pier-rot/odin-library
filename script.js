@@ -48,11 +48,13 @@ function makeCardFromBook (book) {
   deleteBtn.setAttribute("id", "deleteBtn");
   deleteBtn.setAttribute("type", "button");
   deleteBtn.innerText = "󰛌";
+  deleteBtn.addEventListener("click", deleteBtnEventHandler);
   
   const editBtn = document.createElement("button");
   editBtn.setAttribute("id", "editBtn");
   editBtn.setAttribute("type", "button");
   editBtn.innerText = "󰏫";
+  editBtn.addEventListener("click",editBtnClickHandler);
 
   buttonsDiv.appendChild(deleteBtn);
   buttonsDiv.appendChild(editBtn);
@@ -93,7 +95,14 @@ function deleteNodeFromLibrary(node) {
 }
 
 function deleteBookFromLibrary(book) {
-  myLibrary.splice(myLibrary.indexOf(book),1);
+  for(let i = 0; i < myLibrary.length; i++) {
+    const curr = myLibrary[i];
+    if (book.author == curr.author && book.title == curr.title && book.read == String(curr.read) && book.year == curr.year && book.edition == curr.edition && book.pages == curr.pages) {
+      console.log(`Deleting ${curr.title}`);
+      myLibrary.splice(i,1);
+      break;
+    }
+  }
 }
 
 function submitNewBook(event) {
@@ -101,19 +110,39 @@ function submitNewBook(event) {
   const form = event.currentTarget.parentElement.parentElement;
   const formData = new FormData(form);
 
-  const author = formData.get("author");
-  const title = formData.get("title");
-  const year = formData.get("year");
-  const edition = formData.get("edition");
-  const pages = formData.get("pages");
-  const read = (formData.get("read") == "on") ? true : false;
+  const author = String(formData.get("author"));
+  const title = String(formData.get("title"));
+  const year = String(formData.get("year"));
+  const edition = String(formData.get("edition"));
+  const pages = String(formData.get("pages"));
+  const read = String((formData.get("read") == "on") ? true : false);
 
   const book = new Book(title,author,pages,edition,year,read);
   addBookToLibrary(book);
   
 }
 
+function deleteBtnEventHandler (event) {
+  const targetContainer = event.currentTarget.parentElement.parentElement;
+  
+  const targetBookElement = targetContainer.firstChild;
+  const set = targetBookElement.dataset;
+
+  const targetBook = new Book(set.title, set.author, set.pages, set.edition, set.year, set.read);
+  
+  deleteNodeFromLibrary(targetContainer);
+  deleteBookFromLibrary(targetBook);
+
+}
+
+function editBtnClickHandler (event) {
+
+}
+
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
 const lotr2 = new Book("The Two Towers", "J.R.R. Tolkien", 352, 1, 1954,false);
+const lotr3 = new Book("The Return of the King", "J.R.R. Tolkien", 416,1,1954,false);
+const lotr12 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
 addBookToLibrary(lotr1);
 addBookToLibrary(lotr2);
+addBookToLibrary(lotr3);
