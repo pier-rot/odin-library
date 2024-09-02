@@ -149,6 +149,10 @@ button {
 
 /* Library */
 
+h1 {
+    margin: 0 2rem;
+}
+
 .library {
     display: flex;
     border: var(--lighter) solid 2px;
