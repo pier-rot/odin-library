@@ -31,11 +31,11 @@ function makeCardFromBook (book) {
   const bookDiv = document.createElement("div");
   bookDiv.setAttribute("class", "book");
   const buttonsDiv = document.createElement("div");
-  
+  buttonsDiv.setAttribute("id", "buttons-container");
   for(const [key, value] of Object.entries(book)){
     const p = document.createElement("p");
     p.setAttribute("class", `${key}`);
-    p.innerText = `${value}`;
+    p.innerText = makeStringFromKeyValue(key, value);
     bookDiv.appendChild(p);
     bookDiv.dataset[key] = value;
   }
@@ -58,5 +58,30 @@ function makeCardFromBook (book) {
 
   return bookContainer;
 }
+
+function makeStringFromKeyValue (key, value) {
+  if (key == "author") {
+    return "By " + value;
+  } else if (key == "year") {
+    return "Published in " + value;
+  } else if (key == "read") {
+    return value ? "Already read" : "Not read yet";
+  } else if (key == "pages") {
+    return value + " pages";
+  } else if (key == "edition") {
+    if (value % 10 == 1) {
+      return value + "st. Edition";
+    } else if (value % 10 == 2) {
+      return value + "nd. Edition";
+    } else if (value % 10 == 3) {
+      return value + "rd. Edition";
+    } else {
+      return value + "th. Edition";
+    }
+  } else {
+    return value;
+  }
+}
+
 
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
