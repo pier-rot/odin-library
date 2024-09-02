@@ -87,7 +87,7 @@ function makeStringFromKeyValue (key, value) {
   }
 }
 
-function deleteBookFromLibrary(node) {
+function deleteNodeFromLibrary(node) {
   const library = document.getElementById("library");
   library.removeChild(node);
 }
