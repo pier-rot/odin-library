@@ -53,7 +53,7 @@ function makeCardFromBook (book) {
   const editBtn = document.createElement("button");
   editBtn.setAttribute("id", "editBtn");
   editBtn.setAttribute("type", "button");
-  editBtn.innerText = "󰏫";
+  editBtn.innerText = (bookDiv.dataset.read == "true") ? "" : "󰅗" ;
   editBtn.addEventListener("click",editBtnClickHandler);
 
   buttonsDiv.appendChild(deleteBtn);
@@ -140,14 +140,14 @@ function editBtnClickHandler (event) {
   const targetRead = targetBook.querySelector("p.read");
   
   if (targetRead.innerText == "Not read yet") {
-    targetRead.innerText = "Read";
+    targetRead.innerText = "Already read";
   } else {
     targetRead.innerText = "Not read yet";
   }
 
 }
 
-const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
+const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, true);
 const lotr2 = new Book("The Two Towers", "J.R.R. Tolkien", 352, 1, 1954,false);
 const lotr3 = new Book("The Return of the King", "J.R.R. Tolkien", 416,1,1954,false);
 const lotr12 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
