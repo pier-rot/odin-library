@@ -11,5 +11,9 @@ function Book(title, author, pages, edition, year, read) {
 }
 
 function addBookToLibrary(book) {
-  // do stuff here
+  myLibrary.push(book);
+}
+
+function toggleBookRead(book) {
+  book.read = !book.read;
 }
