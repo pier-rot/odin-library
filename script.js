@@ -98,7 +98,6 @@ function deleteBookFromLibrary(book) {
   for(let i = 0; i < myLibrary.length; i++) {
     const curr = myLibrary[i];
     if (book.author == curr.author && book.title == curr.title && book.read == String(curr.read) && book.year == curr.year && book.edition == curr.edition && book.pages == curr.pages) {
-      console.log(`Deleting ${curr.title}`);
       myLibrary.splice(i,1);
       break;
     }
