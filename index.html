@@ -54,6 +54,33 @@
 
             </div>
         </div>
+        <div id="popup-overlay">
+            <div id="pop-box">
+                <form action="" method="post">
+                    <fieldset>
+                        <label for="title">Title :</label>
+                        <input type="text" name="title" id="title-input">
+
+                        <label for="author">Author : </label>
+                        <input type="text" name="author" id="author-input">
+                    </fieldset>
+                    <fieldset>
+                        <label for="edition">Edition : </label>
+                        <input type="number" name="edition" id="edition-input" min="1" value="1">
+
+                        <label for="year">Published in : </label>
+                        <input type="number" name="year" id="year-input">
+                    </fieldset>
+                    <fieldset>
+                        <label for="pages">Number of pages : </label>
+                        <input type="number" name="pages" id="pages-input" min="1">
+
+                        <label for="read"> Have you read it yet ?</label>
+                        <input type="checkbox" name="read" id="read-input">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </main>
 </body>
 </html>
