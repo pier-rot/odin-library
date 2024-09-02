@@ -62,7 +62,7 @@ main {
     height: 100%;
 }
 
-.popup-overlay-container {
+.popup-container {
     display: none;
     opacity: 0;
     position: fixed;
