@@ -92,4 +92,11 @@ function deleteNodeFromLibrary(node) {
   library.removeChild(node);
 }
 
+function deleteBookFromLibrary(book) {
+  myLibrary.splice(myLibrary.indexOf(book),1);
+}
+
 const lotr1 = new Book("The Fellowship of the Ring", "J.R.R. Tolkien", 423, 1,1954, false);
+const lotr2 = new Book("The Two Towers", "J.R.R. Tolkien", 352, 1, 1954,false);
+addBookToLibrary(lotr1);
+addBookToLibrary(lotr2);
