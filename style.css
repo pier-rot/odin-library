@@ -169,3 +169,6 @@ button {
     flex-direction: column;
     background-color: var(--darker);
 }
+.book {
+    margin-bottom: 0.5rem;
+}
